@@ -1,0 +1,14 @@
+userservice:
+  image: fund-sc/user-service
+  expose:
+    - "18860"
+  ports:
+    - "18860:18860"
+  environment:
+    - SERVER_PORT=18860
+    - HOST_ADDRESS=172.16.32.113
+    - EUREKA_SERVERS=http://172.16.32.113:18801/eureka/,http://172.16.32.113:18802/eureka/
+    - SPRING_PROFILES_ACTIVE=expuser
+    - CONFIG_SERVERS=http://172.16.32.113:18888
+    - FRONT_ADDR=172.16.32.113:8899
+    - USER_DB=172.16.32.113:3306

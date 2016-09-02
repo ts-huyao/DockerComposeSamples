@@ -1,0 +1,15 @@
+authservice:
+  image: fund-sc/security-service
+  expose:
+    - "18861"
+  ports:
+    - "18861:18861"
+  environment:
+    - SERVER_PORT=18861
+    - HOST_ADDRESS=172.16.30.235
+    - EUREKA_SERVERS=http://172.16.30.235:18801/eureka/,http://172.16.30.235:18802/eureka/
+    - SPRING_PROFILES_ACTIVE=expauth
+    - CONFIG_SERVERS=http://172.16.30.235:18888
+    - AUTH_DB_PWD=porta
+    - AUTH_DB_USER=porta
+    - AUTH_DB=172.16.30.235:3306

@@ -1,0 +1,13 @@
+configserver:
+  image: fund-sc/config-server
+  expose:
+    - "18888"
+  ports:
+   - "18888:18888"
+  environment:
+    - SERVER_PORT=18888
+    - HOST_ADDRESS=172.16.32.113
+    - EUREKA_SERVERS=http://172.16.32.113:18801/eureka/,http://172.16.32.113:18802/eureka/
+    - SPRING_PROFILES_ACTIVE=expenv
+
+

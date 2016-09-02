@@ -1,0 +1,13 @@
+apigateway:
+  image: fund-sc/api-gateway
+  expose:
+    - "18803"
+  ports:
+    - "18803:18803"
+  environment:
+    - SERVER_PORT=18803
+    - HOST_ADDRESS=172.16.32.113
+    - EUREKA_SERVERS=http://172.16.32.113:18801/eureka/,http://172.16.32.113:18802/eureka/
+    - SPRING_PROFILES_ACTIVE=expgateway
+    - CONFIG_SERVERS=http://172.16.32.113:18888
+    - AUTH_ADDR=172.16.32.113:18861

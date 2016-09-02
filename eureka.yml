@@ -1,0 +1,27 @@
+eurekaserver1:
+  image: fund-sc/eureka-server
+  expose:
+    - "18801"
+  ports:
+    - "18801:18801"
+  environment:
+    - SERVER_PORT=18801
+    - HOST_ADDRESS=172.16.32.113
+    - EUREKA_SERVERS=http://172.16.32.113:18802/eureka/
+    - SPRING_PROFILES_ACTIVE=expeureka01
+    - CONFIG_SERVERS=http://172.16.32.113:18888
+  net: "bridge"
+
+eurekaserver2:
+  image: fund-sc/eureka-server
+  expose:
+    - "18802"
+  ports:
+    - "18802:18802"
+  environment:
+    - SERVER_PORT=18802
+    - HOST_ADDRESS=172.16.32.113
+    - EUREKA_SERVERS=http://172.16.32.113:18801/eureka/
+    - SPRING_PROFILES_ACTIVE=expeureka02
+    - CONFIG_SERVERS=http://172.16.32.113:18888
+  net: "bridge"
